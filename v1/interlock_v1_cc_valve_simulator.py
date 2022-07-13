@@ -25,6 +25,14 @@ def main():
     uhv = Weighted_Graph(nodes, edges)
 
     print(uhv)
+    
+    uhv.open_valve(gv4)
+    
+    uhv.open_valve(gv5)
+    
+    uhv.close_valve(gv4)
+    
+    uhv.open_valve(gv5)
 
 if __name__ == '__main__':
     main()
