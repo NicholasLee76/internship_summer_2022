@@ -202,7 +202,7 @@ class VacuumSystem:
         name = edge.get_name()
         if isinstance(edge.get_src(), Chamber) and isinstance(edge.get_dest(), Chamber):
             if edge in self.arm_dict and self.arm_dict[edge].get_status():
-                print(f"{name} cannot be opened, {self.arm_dict[edge].get_name()} is extended")
+                print(f"{name} cannot be closed, {self.arm_dict[edge].get_name()} is extended")
             else:
                 if edge.get_weight():
                     edge.set_weight(False)
