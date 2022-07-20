@@ -72,11 +72,12 @@ def select_ins():
 def select_op():
     COMMAND[1] = OPERATION.get()
     if TYPE.get() == 'chamber':
-        pick_val = OptionMenu(master, VALUE, *['760', 10**-7, 10**-11])
+        pick_val = OptionMenu(master, VALUE, *['760.0', 10 ** -7, 10 ** -11])
         pick_val.pack()
         b4 = Button(master, text="SELECT PRESSURE", command=select_val)
         b4.pack()
-    select_val()
+    else:
+        select_val()
 
 
 def select_val():
@@ -86,35 +87,25 @@ def select_val():
 
 def execute_command():
     ins = None
+    for obj in chambers + valves + pumps + arms:
+        if obj.get_name() == COMMAND[0]:
+            ins = obj
     if TYPE.get() == 'chamber':
-        for obj in chambers:
-            if obj.get_name() == COMMAND[0]:
-                ins = obj
         ins.set_pressure(float(COMMAND[2]))
     elif TYPE.get() == 'valve':
-        for obj in valves:
-            if obj.get_name() == COMMAND[0]:
-                ins = obj
         if COMMAND[1] == 'open':
             uhv.open_valve(ins)
         else:
             uhv.close_valve(ins)
     elif TYPE.get() == 'pump':
-        for obj in pumps:
-            if obj.get_name() == COMMAND[0]:
-                ins = obj
         if COMMAND[1] == 'run':
             ins.set_status(True)
         else:
             ins.set_status(False)
+    elif COMMAND[1] == 'extend':
+        uhv.extend_arm(ins)
     else:
-        for obj in arms:
-            if obj.get_name() == COMMAND[0]:
-                ins = obj
-        if COMMAND[1] == 'extend':
-            uhv.extend_arm(ins)
-        else:
-            uhv.retract_arm(ins)
+        uhv.retract_arm(ins)
     print(uhv)
 
     for widget in master.winfo_children():
