@@ -201,10 +201,7 @@ class VacuumSystem:
     def close_valve(self, edge):
         name = edge.get_name()
         if isinstance(edge.get_src(), Chamber) and isinstance(edge.get_dest(), Chamber):
-            '''if edge in self.arm_dict:
-                if self.arm_dict[edge]:
-                    print(f"{name} cannot be opened, {self.arm_dict[edge].get_name()} is extended")'''
-            if edge in self.arm_dict and self.arm_dict[edge]:
+            if edge in self.arm_dict and self.arm_dict[edge].get_status():
                 print(f"{name} cannot be opened, {self.arm_dict[edge].get_name()} is extended")
             else:
                 if edge.get_weight():
