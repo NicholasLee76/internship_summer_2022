@@ -1,0 +1,6 @@
+v3 updates:
+- Moved chamber, pump, and valve initialization all into data.py file
+- Driver program now takes commands through tkinter-based gui
+  - Upon running driver program, tkinter window will pop up, and can choose an operation to do a vacuum instrument
+  - Will be executed according to interlock logic, and result will be printed in terminal
+  - Can give as many inputs as desired, will always update accordingly
