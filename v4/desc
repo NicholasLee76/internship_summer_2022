@@ -1,0 +1,6 @@
+v4 updates:
+- Added Arm class and corresponding interlock logic
+  - Arm has 3 fields: name, through_valve (valve arm goes through), and status (T: extended, F: retracted)
+  - Arm has 2 corresponding methods in VacuumSystem class: extend and retract
+    - Only extends and retracts if through valve is open
+  - Through valve only closes if arm is retracted
