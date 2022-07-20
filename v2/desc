@@ -1,0 +1,7 @@
+v2 updates:
+- Added Pump class (Node subclass), which has two subclasses of its own (Turbo and Cryo)
+  - Turbo's run status is based on speed (threshold value: 1000 rps), Cryo's is based on temperature (threshold value: 60K)
+  - When opening chamber-pump valve:
+    - If turbo pump, only opened if chamber is ultra high vacuum (<1e-9) and pump is running
+    - If cryo pump, only opened if chamber is ultra high vacuum and neighboring valves to chamber are closed (prefer to close regardless of if pump is running or not)
+- 2 types of adjacency lists: chamber-chamber, and chamber-pump (__str__ is still overridden to print out c-c adjacency lists)
