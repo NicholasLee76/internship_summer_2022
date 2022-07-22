@@ -1,0 +1,4 @@
+v6 updates:
+- Fixed pump status updates: now have choices of Run at High Speed, Run at Low Speed, Stop Running (Turbo) and High Temp (Run), Low Temp (Stop) (Cryo)
+- Fixed reaction to turning off pump: closes gate valves, but keeps backup open
+- Added vent method for chambers: turns off all connected turbos, keeps valves open
