@@ -295,7 +295,3 @@ class VacuumSystem:
         if chamber.get_data() != 'ultra high vacuum':
             for item in self.p_adj_dict[chamber] + self.c_adj_dict[chamber]:
                 self.close_valve(item[1])
-
-
-
-
