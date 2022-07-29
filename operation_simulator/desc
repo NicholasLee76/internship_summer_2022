@@ -11,5 +11,7 @@ interlock_operation_simulator.py is the functional program that executes the com
 - Check command line output to make sure interlock was executed properly, if there are any errors, change in operation_writer.py
 
 operations.pckl is the file that stores the operations and commands, is not readable by itself (written in unicode), needs to be loaded using:
+import pickle
+
 with open('operations.pckl', 'rb') as file:
     OPERATIONS = pickle.load(file)
