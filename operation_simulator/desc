@@ -1,0 +1,15 @@
+Allows user to string a bunch of commands together and save them as a full operation
+
+operation_writer.py is the writing function where the user inputs a bunch of commands
+- First select an operation to update or add a new one
+- Go through each command (interlock will not be processed here, so try to do it as correctly as possible)
+- Type y after each command to write another one, write n after last one
+
+interlock_operation_simulator.py is the functional program that executes the commands in a given operation
+- Select an operation in the tkinter window
+- Let program run each command
+- Check command line output to make sure interlock was executed properly, if there are any errors, change in operation_writer.py
+
+operations.pckl is the file that stores the operations and commands, is not readable by itself (written in unicode), needs to be loaded using:
+with open('operations.pckl', 'rb') as file:
+    OPERATIONS = pickle.load(file)
