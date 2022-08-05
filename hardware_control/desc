@@ -1,0 +1,10 @@
+hardware control: software for communicating with Becton326 vacuum system instruments
+- XGS600 gauge controller: interfaces with hot and cold cathode gauges
+  - Relevant scripts: xgs600_test.py, single_pressure_graphing.py
+  - Needs usb to rs232 connection to controller
+- Pfeiffer DCU: interfaces with Pfeiffer turbo pumps
+  - Relevant scripts: turbo_pump_test.py
+  - Needs usb to rs485 connection to DCU
+- 8 channel serial relay: controls valves
+  - Relevant scripts: relay_test.py
+  - Needs usb connection to relay unit
